@@ -1,8 +1,4 @@
-"""
-Simple Hello World DAG for Apache Airflow 3.0.1
-This DAG demonstrates basic task orchestration
-"""
-
+# Utkarsh Chakrwarti
 from airflow import DAG
 from airflow.providers.standard.operators.python import PythonOperator
 from datetime import datetime, timedelta
