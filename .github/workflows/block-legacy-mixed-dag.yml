@@ -1,0 +1,21 @@
+name: Block legacy mixed DAG
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  validate-dags:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure legacy mixed DAG is not present
+        run: |
+          if [ -f "dags/example_mixed_namespace.py" ]; then
+            echo "ERROR: dags/example_mixed_namespace.py is not allowed in this repo."
+            exit 1
+          fi
+          echo "OK: legacy mixed DAG is not present."
